@@ -1,0 +1,629 @@
+@charset "UTF-8";
+/* リセットCSSはressを読み込ませてあります */
+
+/* おまじない */
+/* img {
+    max-width: 100%;
+} */
+
+/* ここからCSSを書いてください */
+body {
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+ul {
+    list-style: none;
+}
+
+p {
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+/* font */
+.noto-sans-jp-regular {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.noto-sans-jp-bold {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.noto-serif-jp-regular {
+  font-family: "Noto Serif JP", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;}
+
+.noto-serif-jp-bold {
+  font-family: "Noto Serif JP", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;}
+
+/* common */
+.wrapper {
+    max-width: 980px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.text-color-gray {
+    color: #777777;
+}
+
+.scroll-bar {
+    /* スクロールバーを確保 */
+    overflow-y: scroll;
+}
+
+.decoration-line {
+    text-decoration-line: underline;
+}
+
+.indent {
+    /* ブロック化して段落扱いにする */
+    display: inline-block;
+    /* 全体を1文字分右へ */
+    margin-left: 1em;
+}
+
+.dot-text {
+    /* ブロック化して段落扱いにする */
+    display: block;
+    /* 全体を1文字分右へ */
+    padding-left: 1em;
+    /* 先頭の「・」だけ1文字左へ */
+    text-indent: -1em;
+}
+
+/* page-header */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #324029;
+
+    padding: 1rem;
+    margin-bottom: 3rem;
+}
+
+.logo-container a,
+.header-container a {
+    color: #ffffff;
+}
+
+.logo-container a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo-container a {
+    gap: .5rem;
+}
+
+.logo-text {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+}
+
+/* main */
+.tab-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-container .tab {
+    display: inline-block;
+    border: solid 2px #324029;
+    border-bottom: none;
+    padding: 0 1rem;
+}
+
+.tab-container .tab.active {
+    background-color: #324029;
+    color: #ffffff;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.content {
+    border: solid 2px #324029;
+    margin: 0 .5rem;
+}
+
+.heading {
+    display: inline-block;
+    background-color: #324029;
+    color: #ffffff;
+    font-size: 18px;
+    padding: .1rem .5rem;
+}
+
+/* works */
+.works-card {
+    scroll-margin-top: 1rem;
+    margin: 1.5rem 1rem;
+    padding: 1rem 1rem;
+    box-shadow: 2px 2px 6px #32402937;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 0 1rem 0;
+}
+
+.work-img img {
+    max-width: 600px;
+    width: 100%;
+
+    padding: 1rem;
+    border: solid 1px #324029;
+}
+
+.accordion-btn {
+    scroll-margin-top: 1rem;
+    display: block;
+    background-color: #324029;
+    width: 100%;
+
+    padding: 1.5rem;
+
+    position: relative;
+}
+
+.accordion-btn::after {
+    content: "⋁";
+    position: absolute;
+    color: #ffffff;
+    /* color: red; */
+
+    /* 親要素に対して高さを50%下にずらす */
+    top: 50%;
+    /* 親要素に対して幅を50%右にずらす */
+    left: 50%;
+    /* ずらした位置から子要素の50%上にずらす */
+    /* ずらした位置から子要素の50%左にずらす */
+    /* そうすることで子要素が親要素のちょうど中央の位置に設定できる */
+    transform: translateY(-60%) translateX(-50%);
+    animation: accordion 1s linear infinite;
+}
+
+@keyframes accordion {
+    0% {
+        /* transform: translate(-50%, -50%) translateY(-25%) */
+        transform: translateY(-60%) translateX(-50%) translateY(0%)
+    }
+    50% {
+        /* transform: translate(-50%, -50%) translateY(25%) */
+        transform: translateY(-60%) translateX(-50%) translateY(25%)
+    }
+    51% {
+        /* transform: translate(-50%, -50%) translateY(-25%) */
+        transform: translateY(-60%) translateX(-50%) translateY(-25%)
+    }
+    100% {
+        /* transform: translate(-50%, -50%) translateY(-25%) */
+        transform: translateY(-60%) translateX(-50%) translateY(0%)
+    }
+}
+
+.accordion-btn.opened::after {
+    content: "∧";
+    animation: none;
+}
+
+.appear-container {
+    display: none;
+}
+
+.appear-container.opened {
+    display: block;
+}
+
+.project-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.designconcept-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.resource-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.period-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.period th,
+.period th {
+    font-size: 14px;
+}
+.text-container h4 {
+    text-decoration-line: underline;
+    margin-bottom: .5rem;
+}
+
+.text-container p {
+    font-size: 14px;
+}
+
+/* about */
+.about-card {
+    scroll-margin-top: 1rem;
+    margin: 1.5rem 1rem;
+    /* padding: 1rem 1rem; */
+    /* box-shadow: 2px 2px 6px #32402937; */
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+
+/* .about-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+} */
+
+.about-img {
+    position: relative;
+    display: inline-block;
+    border: solid 1px #324029;
+    border-radius: 10px;
+    padding: 1rem;
+    transition: transform 1s ease;
+    padding: 1rem;
+}
+
+.about-img:hover {
+    transform: scale(1.07);
+}
+
+.about-img img {
+    max-width: 600px;
+    width: 100%;
+}
+
+.about-img .hover-img {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    object-fit: cover;
+    width: calc(100% - 2rem);   /* padding分引いたサイズ */
+    height: calc(100% - 2rem);
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.about-img .default-img {
+    transition: opacity 1s ease;
+}
+
+.about-img:hover .hover-img {
+    opacity: 1;
+}
+
+.about-img:hover .default-img {
+    opacity: 0;
+}
+
+.skill-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem 2rem;
+    padding: 1rem;
+}
+
+.skill-item {
+    max-width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.skill-item img {
+    width: 50px;
+}
+
+.skill-item p {
+    font-size: 12px;
+}
+
+
+.fullscreen-wrapper {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    /* fullscreenは上に表示するため前面になるようz-indexを設定 */
+    z-index: 1000;
+    /* ↓これがあると下のボタンが押せる */
+    pointer-events: none;
+}
+
+#fullscreen {
+    background-color: #324029cc;
+    display: block;
+    align-items: flex-start;
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+    padding: 32px;
+    box-sizing: border-box;
+    /* ↓これがあると自要素のボタンが押せる(下のボタンは押せなくなる) */
+    pointer-events: auto;
+}
+
+#fullscreen-img {
+    display: block;
+    max-width: 90%;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+#fullscreen.hidden {
+    display: none;
+}
+
+#close-btn {
+    position: fixed;
+    top: .5rem;
+    left: .5rem;
+    display: block;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    color: #ffffff;
+    background-color: #324029;
+    border: solid 1px #ffffff;
+    cursor: pointer;
+    z-index: 1001;
+    /* ↓これがあると自要素のボタンが押せる(下のボタンは押せなくなる) */
+    pointer-events: auto;
+}
+
+#close-btn.hidden {
+    display: none;
+}
+
+.clickable {
+    /* マウスカーソルが手の形になる */
+    cursor: pointer;
+}
+
+video {
+    width: 100%;
+    display: block;
+}
+
+.popup {
+  position: fixed;
+  inset: 0;
+  background-color: #324029cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  background-color: #ffffff;
+  border-radius: 10px;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+  padding: 1rem 1rem;
+}
+
+.popup-content p {
+  margin-bottom: 1rem;
+}
+
+.popup-content button {
+  margin: 0 .5rem;
+  padding: .5rem .5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#sound-on,
+#sound-off {
+  background-color: #ffffff;
+  border: solid 2px #324029;
+  color: #000000;
+}
+
+#sound-on:hover,
+#sound-off:hover {
+  background-color: #324029;
+  color: #ffffff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.floating-btn {
+    position: fixed;
+    right: 1rem;
+    bottom : 1rem;
+    width: 48px;
+    height: 48px;
+    background-color: #324029;
+    border: solid 1px #ffffff;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.floating-btn-text {
+    color: #ffffff;
+    font-size: 10px;
+    text-align: center;
+}
+
+/* footer */
+.page-footer {
+    text-align: center;
+    background-color: #324029;
+    color: #ffffff;
+    padding: .5rem;
+    margin-top: 3rem;
+}
+
+.contact-continer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .5rem;
+}
+
+.contact-text,
+.contact-gmail {
+    color: #ffffff;
+}
+
+.contact-text {
+    font-size: 12px;
+}
+
+.contact-gmail {
+    font-size: 12px;
+    display: inline-block;
+    border: solid 1px #ffffff;
+    padding: .1rem .3rem;
+}
+
+/* PC版 */
+@media (min-width: 800px) {
+
+.heading {
+    font-size: 24px;
+    padding: .5rem 1rem;
+}
+
+.info-container {
+    flex-direction: row;
+}
+
+.project-container {
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+.about-card {
+    flex-direction: row;
+}
+
+.skill-container {
+}
+
+.skill-item {
+    flex-direction: row;
+}
+
+.skill-item {
+    max-width: 300px;
+}
+
+.skill-item img {
+    width: 50px;
+}
+
+.skill-item p {
+    font-size: 12px;
+}
+
+.evenly {
+    /* 親要素に対して均等に割り当て(今回は1:1) */
+    flex: 1;
+    /* flexのmin-widthのデフォルトはauto */
+    /* 子要素の最大まで親要素を広げてしまうので */
+    /* min-width 0 で最小幅を 0 まで縮められるように設定する  */
+    min-width: 0;
+    /* flex と min-width の設定で子要素の幅が決まる */
+    /* 子要素の幅に合わせてテキストを折り返すように設定する */
+    overflow-wrap: break-word;
+}
+
+.evenly-two {
+    /* 親要素に対して均等に割り当て(今回は2:1) */
+    flex: 2;
+    /* flexのmin-widthのデフォルトはauto */
+    /* 子要素の最大まで親要素を広げてしまうので */
+    /* min-width 0 で最小幅を 0 まで縮められるように設定する  */
+    min-width: 0;
+    /* flex と min-width の設定で子要素の幅が決まる */
+    /* 子要素の幅に合わせてテキストを折り返すように設定する */
+    overflow-wrap: break-word;
+}
+
+.evenly-one {
+    /* 親要素に対して均等に割り当て(今回は2:1) */
+    flex: 1;
+    /* flexのmin-widthのデフォルトはauto */
+    /* 子要素の最大まで親要素を広げてしまうので */
+    /* min-width 0 で最小幅を 0 まで縮められるように設定する  */
+    min-width: 0;
+    /* flex と min-width の設定で子要素の幅が決まる */
+    /* 子要素の幅に合わせてテキストを折り返すように設定する */
+    overflow-wrap: break-word;
+}
+
+}
